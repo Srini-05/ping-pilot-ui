@@ -5,7 +5,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', 'VITE_')
 
   return {
-    base: env.VITE_BASE_PATH || '/',
+    base: env.VITE_BASE_PATH || (mode === 'production' ? '/ping-pilot-ui/' : '/'),
     plugins: [react()],
     server: {
       proxy: {
